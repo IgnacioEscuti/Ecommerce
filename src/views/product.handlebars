@@ -1,0 +1,21 @@
+<h1>{{product.title}}</h1>
+
+<p>{{product.description}}</p>
+<p>Precio: {{product.price}}</p>
+<p>Categoría: {{product.category}}</p>
+
+<button onclick="addToCart('{{product._id}}')">
+  Agregar al carrito
+</button>
+
+<script>
+  const cartId = "69b966c639abcc1b79b73128";l
+
+  function addToCart(pid) {
+    fetch(`/api/carts/${cartId}/products/${pid}`, {
+      method: "POST"
+    })
+    .then(res => res.json())
+    .then(data => alert("Producto agregado"));
+  }
+</script>
